@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        function Human(name, gender, weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weightHuman = weight;
+            this.say = '';
+
+            this.isMale = true;
+            this.setGender = function (gendet) {
+                this.gender = gender;
+            }
+            this.getGender = function () {
+                return this.gender;
+            }
+            this.getName = function () {
+                return this.name;
+            }
+            this.setName = function (name) {
+                this.name = name
+            }
+            this.getWeight = function (weight) {
+               return  this.weightHuman;
+            }
+
+            this.checkHuman = function () {
+                return this.weightHuman;
+            }
+            this.eat = function (apple) {
+                if (apple.weight>0){
+                    this.weightHuman++;
+                    apple.weight--;
+                }
+            }
+
+            this.setTalk = function (say) {
+                this.say = say;
+            }
+            this.getTalk = function () {
+                return this.say;
+            }
+        }
+        
+
+        function Apple(weight) {
+            this.weight = weight;
+            this.status = true;
+            this.getWeight = function () {
+                return this.weight;
+            }
+            this.checkApple = function () {
+                return this.weight;
+            }
+
+        }
+
+        document.write('<strong>Người thứ nhất là: </strong>');
+        //Thong tin nhap vao ban đầu
+        let apple = new Apple(10);
+        let human = new Human('Adam','boy',50);
+        let name = human.getName();
+        let gender = human.getGender();
+        let weight = human.getWeight();
+        document.write('<br>Name is: '+name+'<br>Gendet is: '+gender+"<br>Weight is: "+ weight);
+        let weightApple = apple.getWeight();
+        document.write('<br>WeightApple is: '+ weightApple);
+
+        //nguoi 2
+        document.write('<strong><br>Người thứ hai là: </strong>');
+        let human2 = new Human('Eva','girl',40);
+        let name2 = human2.getName();
+        let gender2 = human2.getGender();
+        let weight2 = human2.getWeight();
+        document.write('<br>Name is: '+name2+'<br>Gendet is: '+gender2+"<br>Weight is: "+ weight2);
+
+        human.setTalk('Hello');
+        let say = human.getTalk();
+        document.write('<br>Human talk: '+say);
+        //sau khi ăn
+        document.write(' <br><b>Cân nặng sau khi ăn táo</b>');
+        for (let i=0;i<5;i++){
+            document.write('<br>'+name+ ' ăn');
+            human.eat(apple);
+            let check = human.checkHuman()
+            document.write('<br>Cân nặng hiện tại của '+name + ' '+check);
+            let status = apple.checkApple();
+            document.write('<br>Apple: '+status);
+            //người 2 ăn
+            document.write('<br>'+name2+ ' ăn');
+            human2.eat(apple);
+            let check2 = human2.checkHuman()
+            document.write('<br>Cân nặng hiện tại: '+name2+ ' ' +check2);
+            let status2 = apple.checkApple();
+            document.write('<br>Apple: '+status2);
+        }
+    </script>
+</body>
+</html>
